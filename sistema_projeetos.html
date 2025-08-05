@@ -11,10 +11,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Warm Neutrals -->
-    <!-- Application Structure Plan: A single-page application with a fixed sidebar for step-by-step navigation (Início, Estrutura, Tipo de Projeto, Dicas e Recursos, Visualização). This task-oriented flow transforms the static guide into an interactive tool, breaking down the project creation process into manageable, engaging steps. The main content area dynamically updates based on user selection, featuring interactive forms, content toggles, and data visualization examples to make the process practical and intuitive. New form fields for project summary, beneficiary count, priority audience, CNPJ, and NGO address have been added to the "Estrutura do Projeto" section to capture essential project details from the start, and the .doc and .pdf generation features have been added/fixed. -->
-    <!-- Visualization & Content Choices: Project Structure is an interactive form (HTML/JS) with new fields for ODS and project scope, and updated buttons to generate both .doc and .pdf files. Project Type uses toggle buttons to dynamically show relevant legal guidance, with expanded normative text for cultural and sports laws. A sample project timeline is a horizontal bar chart (Chart.js) and impact areas are a donut chart (Chart.js) to visually demonstrate effective project presentation. Reference links are presented as a grid of cards (HTML/Tailwind) for better visual organization. This approach makes the guide's content actionable and easier to digest. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -72,6 +68,7 @@
                     <li><a href="#tipo" class="nav-link text-lg font-medium text-stone-600 hover:text-stone-900 transition-colors duration-300" data-target="tipo">Tipo de Projeto</a></li>
                     <li><a href="#dicas" class="nav-link text-lg font-medium text-stone-600 hover:text-stone-900 transition-colors duration-300" data-target="dicas">Dicas e Recursos</a></li>
                     <li><a href="#visualizacao" class="nav-link text-lg font-medium text-stone-600 hover:text-stone-900 transition-colors duration-300" data-target="visualizacao">Visualização de Dados</a></li>
+                    <li><a href="#apresentacao" class="nav-link text-lg font-medium text-stone-600 hover:text-stone-900 transition-colors duration-300" data-target="apresentacao">Apresentação Comercial</a></li>
                 </ul>
             </nav>
         </aside>
@@ -90,6 +87,7 @@
                     <li><a href="#tipo" class="nav-link block py-2 text-lg font-medium text-stone-600 hover:text-stone-900" data-target="tipo">Tipo de Projeto</a></li>
                     <li><a href="#dicas" class="nav-link block py-2 text-lg font-medium text-stone-600 hover:text-stone-900" data-target="dicas">Dicas e Recursos</a></li>
                     <li><a href="#visualizacao" class="nav-link block py-2 text-lg font-medium text-stone-600 hover:text-stone-900" data-target="visualizacao">Visualização de Dados</a></li>
+                    <li><a href="#apresentacao" class="nav-link block py-2 text-lg font-medium text-stone-600 hover:text-stone-900" data-target="apresentacao">Apresentação Comercial</a></li>
                 </ul>
             </nav>
         </div>
@@ -203,7 +201,7 @@
                                 </thead>
                                 <tbody id="cronograma-table-body" class="bg-white divide-y divide-stone-200">
                                     <tr>
-                                        <td class="p-2"><input type="text" class="w-full border-0 p-1" placeholder="Ex: Planeamento"></td>
+                                        <td class="p-2"><input type="text" class="w-full border-0 p-1" placeholder="Ex: Planejamento"></td>
                                         <td class="p-2"><input type="text" class="w-full border-0 p-1" placeholder="Ex: Pesquisa e validação"></td>
                                         <td class="p-2"><input type="number" class="w-full border-0 p-1"></td>
                                         <td class="p-2"><input type="text" class="w-full border-0 p-1" placeholder="Ex: Jan - Fev"></td>
@@ -255,7 +253,7 @@
                         <div class="space-y-4">
                             <div>
                                 <h4 class="font-bold text-lg mb-2 text-stone-700">Documentação Jurídica e Administrativa</h4>
-                                <ul class="space-y-2 text-stone-600">
+                                <ul id="checklist-juridico-list" class="space-y-2 text-stone-600">
                                     <li>
                                         <input type="checkbox" id="estatuto" class="rounded text-amber-500 focus:ring-amber-500">
                                         <label for="estatuto" class="ml-2">Estatuto Social da organização</label>
@@ -296,7 +294,7 @@
                             </div>
                             <div>
                                 <h4 class="font-bold text-lg mb-2 text-stone-700">Certidões Negativas e Regularidades Fiscais</h4>
-                                <ul class="space-y-2 text-stone-600">
+                                <ul id="checklist-fiscal-list" class="space-y-2 text-stone-600">
                                     <li>
                                         <input type="checkbox" id="cnd-federal" class="rounded text-amber-500 focus:ring-amber-500">
                                         <label for="cnd-federal" class="ml-2">Certidão Negativa de Débitos (CND) da Receita Federal e INSS</label>
@@ -450,6 +448,40 @@
                     </div>
                 </div>
             </div>
+            
+            <div id="apresentacao" class="content-section">
+                <h2 class="text-4xl font-bold text-stone-800 mb-4">Dicas para a Apresentação Comercial do Projeto</h2>
+                <p class="text-lg text-stone-600 mb-8">
+                    Uma boa apresentação pode ser a chave para conseguir o financiamento e o apoio que seu projeto precisa. Use estas dicas para transformar sua proposta em uma narrativa convincente e profissional para potenciais investidores e parceiros.
+                </p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <h4 class="font-bold text-xl mb-2 text-amber-600">1. Conte uma História (Storytelling)</h4>
+                        <p>Comece com uma história humana e impactante. Apresente uma pessoa real que será beneficiada. Isso cria uma conexão emocional imediata, tornando o problema e a solução mais tangíveis do que apenas números e estatísticas.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <h4 class="font-bold text-xl mb-2 text-amber-600">2. Tenha um "Elevator Pitch"</h4>
+                        <p>Seja capaz de explicar seu projeto em 30-60 segundos. Qual é o problema, qual a sua solução e qual o impacto esperado? Ter essa mensagem clara na ponta da língua demonstra foco e confiança.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <h4 class="font-bold text-xl mb-2 text-amber-600">3. Menos é Mais nos Slides</h4>
+                        <p>Use mais imagens e gráficos do que texto. Cada slide deve ter uma ideia principal. Deixe os detalhes para a sua fala ou para o documento do projeto. Sua apresentação é um guia visual, não um livro.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <h4 class="font-bold text-xl mb-2 text-amber-600">4. Mostre o Impacto em Números</h4>
+                        <p>Traduza seus objetivos em dados claros. "Com R$ 10.000, vamos capacitar 50 jovens, com um custo de R$ 200 por jovem". Isso mostra que você tem um plano concreto e que o investimento é eficiente.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <h4 class="font-bold text-xl mb-2 text-amber-600">5. Apresente Sua Equipe</h4>
+                        <p>Investidores apostam em pessoas. Mostre quem está por trás do projeto. Destaque a experiência e a paixão da sua equipe. Isso constrói credibilidade e confiança.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <h4 class="font-bold text-xl mb-2 text-amber-600">6. Faça um Pedido Claro (O "Ask")</h4>
+                        <p>Seja específico sobre o que você precisa. Não diga apenas "precisamos de ajuda". Diga "buscamos um investimento de R$ 50.000 para construir a nova sala de aula e comprar 10 computadores". Termine com um claro "call-to-action".</p>
+                    </div>
+                </div>
+            </div>
+
         </main>
     </div>
 
@@ -554,7 +586,7 @@
                 const tableBody = document.getElementById('cronograma-table-body');
                 const newRow = document.createElement('tr');
                 newRow.innerHTML = `
-                    <td class="p-2"><input type="text" class="w-full border-0 p-1" placeholder="Ex: Planeamento"></td>
+                    <td class="p-2"><input type="text" class="w-full border-0 p-1" placeholder="Ex: Planejamento"></td>
                     <td class="p-2"><input type="text" class="w-full border-0 p-1" placeholder="Ex: Pesquisa e validação"></td>
                     <td class="p-2"><input type="number" class="w-full border-0 p-1"></td>
                     <td class="p-2"><input type="text" class="w-full border-0 p-1" placeholder="Ex: Jan - Fev"></td>
@@ -566,93 +598,92 @@
             generatePdfBtn.addEventListener('click', async function() {
                 const { jsPDF } = window.jspdf;
                 const doc = new jsPDF();
-                const font = "Inter";
 
                 doc.setFontSize(22);
                 doc.text('Projeto Social', 105, 20, null, null, 'center');
 
-                doc.setFontSize(16);
-                doc.text('1. Dados Básicos da ONG e do Projeto', 15, 30);
-                doc.setFontSize(12);
-                doc.text(`Título do Projeto: ${document.getElementById('titulo').value}`, 15, 40);
-                doc.text(`Nome da ONG: ${document.getElementById('ong').value}`, 15, 47);
-                doc.text(`CNPJ: ${document.getElementById('cnpj').value}`, 15, 54);
-                doc.text(`Endereço: ${document.getElementById('endereco').value}`, 15, 61);
-                doc.text(`Redes Sociais e Site: ${document.getElementById('redes-sociais').value}`, 15, 68);
-                doc.text(`Abrangência: ${document.getElementById('abrangencia').value}`, 15, 75);
+                let currentY = 30;
 
+                function addSection(title, content, size = 12) {
+                    if (currentY > 260) {
+                        doc.addPage();
+                        currentY = 20;
+                    }
+                    doc.setFontSize(16);
+                    doc.text(title, 15, currentY);
+                    currentY += 10;
+                    doc.setFontSize(size);
+                    const lines = doc.splitTextToSize(content, 180);
+                    doc.text(lines, 15, currentY);
+                    currentY += (lines.length * 7) + 5;
+                }
+                
+                // Dados Básicos
+                doc.setFontSize(16);
+                doc.text('1. Dados Básicos da ONG e do Projeto', 15, currentY);
+                currentY += 10;
+                doc.setFontSize(12);
+                doc.text(`Título do Projeto: ${document.getElementById('titulo').value}`, 15, currentY); currentY += 7;
+                doc.text(`Nome da ONG: ${document.getElementById('ong').value}`, 15, currentY); currentY += 7;
+                doc.text(`CNPJ: ${document.getElementById('cnpj').value}`, 15, currentY); currentY += 7;
+                doc.text(`Endereço: ${document.getElementById('endereco').value}`, 15, currentY); currentY += 7;
+                doc.text(`Redes Sociais e Site: ${document.getElementById('redes-sociais').value}`, 15, currentY); currentY += 7;
+                doc.text(`Abrangência: ${document.getElementById('abrangencia').value}`, 15, currentY); currentY += 10;
+
+                // ODS
                 doc.setFontSize(14);
-                doc.text('ODS Relacionadas:', 15, 85);
+                doc.text('ODS Relacionadas:', 15, currentY);
+                currentY += 7;
                 doc.setFontSize(12);
                 const odsSelecionados = Array.from(document.querySelectorAll('#ods-container .ods-btn.bg-amber-500')).map(btn => btn.textContent);
-                odsSelecionados.forEach((ods, index) => {
-                    doc.text(`- ${ods}`, 20, 92 + (index * 7));
+                odsSelecionados.forEach((ods) => {
+                    doc.text(`- ${ods}`, 20, currentY);
+                    currentY += 7;
                 });
-                
-                let currentY = 92 + (odsSelecionados.length * 7) + 10;
-                doc.setFontSize(16);
-                doc.text('2. Resumo do Projeto', 15, currentY);
-                doc.setFontSize(12);
-                const resumoLines = doc.splitTextToSize(document.getElementById('resumo').value, 180);
-                doc.text(resumoLines, 15, currentY + 10);
+                currentY += 5;
 
-                currentY += (resumoLines.length * 7) + 10;
-                doc.setFontSize(16);
-                doc.text('3. Justificativa', 15, currentY);
-                doc.setFontSize(12);
-                const justificativaLines = doc.splitTextToSize(document.getElementById('justificativa').value, 180);
-                doc.text(justificativaLines, 15, currentY + 10);
+                // Outras Seções
+                addSection('2. Resumo do Projeto', document.getElementById('resumo').value);
+                addSection('3. Justificativa', document.getElementById('justificativa').value);
                 
-                currentY += (justificativaLines.length * 7) + 10;
+                // Público e Abrangência
+                if (currentY > 260) { doc.addPage(); currentY = 20; }
                 doc.setFontSize(16);
-                doc.text('4. Público e Abrangência', 15, currentY);
+                doc.text('4. Público e Abrangência', 15, currentY); currentY += 10;
                 doc.setFontSize(12);
-                doc.text(`Número de Beneficiários: ${document.getElementById('beneficiarios').value}`, 15, currentY + 10);
-                doc.text(`Público Prioritário: ${document.getElementById('publico-prioritario').value}`, 15, currentY + 17);
+                doc.text(`Número de Beneficiários: ${document.getElementById('beneficiarios').value}`, 15, currentY); currentY += 7;
+                doc.text(`Público Prioritário: ${document.getElementById('publico-prioritario').value}`, 15, currentY); currentY += 10;
 
-                currentY += 27;
+                // Objetivos
+                if (currentY > 260) { doc.addPage(); currentY = 20; }
                 doc.setFontSize(16);
-                doc.text('5. Objetivos', 15, currentY);
+                doc.text('5. Objetivos', 15, currentY); currentY += 10;
                 doc.setFontSize(12);
-                doc.text('Objetivo Geral:', 15, currentY + 10);
+                doc.text('Objetivo Geral:', 15, currentY); currentY += 7;
                 const objetivoGeralLines = doc.splitTextToSize(document.getElementById('objetivo-geral').value, 180);
-                doc.text(objetivoGeralLines, 15, currentY + 17);
-                
-                currentY += (objetivoGeralLines.length * 7) + 17;
-                doc.setFontSize(12);
-                doc.text('Objetivos Específicos:', 15, currentY);
+                doc.text(objetivoGeralLines, 15, currentY); currentY += (objetivoGeralLines.length * 7) + 5;
+                doc.text('Objetivos Específicos:', 15, currentY); currentY += 7;
                 const objetivosEspecificosLines = doc.splitTextToSize(document.getElementById('objetivos-especificos').value, 180);
-                doc.text(objetivosEspecificosLines, 15, currentY + 7);
+                doc.text(objetivosEspecificosLines, 15, currentY); currentY += (objetivosEspecificosLines.length * 7) + 5;
 
-                currentY += (objetivosEspecificosLines.length * 7) + 10;
-                doc.setFontSize(16);
-                doc.text('6. Metodologia e Plano de Ação', 15, currentY);
-                doc.setFontSize(12);
-                const metodologiaLines = doc.splitTextToSize(document.getElementById('metodologia').value, 180);
-                doc.text(metodologiaLines, 15, currentY + 10);
+                addSection('6. Metodologia e Plano de Ação', document.getElementById('metodologia').value);
 
-                currentY += (metodologiaLines.length * 7) + 10;
+                // Cronograma
+                if (currentY > 270) { doc.addPage(); currentY = 20; }
                 doc.setFontSize(16);
                 doc.text('7. Cronograma de Execução', 15, currentY);
-
                 const cronogramaRows = [['Fase', 'Atividade', 'Duração (Semanas)', 'Prazo']];
                 document.querySelectorAll('#cronograma-table-body tr').forEach(row => {
                     const cells = row.querySelectorAll('input');
                     cronogramaRows.push([cells[0].value, cells[1].value, cells[2].value, cells[3].value]);
                 });
-                
-                doc.autoTable({
-                    startY: currentY + 10,
-                    head: [cronogramaRows[0]],
-                    body: cronogramaRows.slice(1),
-                    theme: 'striped',
-                    headStyles: { fillColor: [245, 245, 245], textColor: [0, 0, 0] },
-                });
+                doc.autoTable({ startY: currentY + 10, head: [cronogramaRows[0]], body: cronogramaRows.slice(1), theme: 'striped', headStyles: { fillColor: [245, 245, 245], textColor: [0, 0, 0] }, });
                 currentY = doc.autoTable.previous.finalY + 10;
 
+                // Orçamento
+                if (currentY > 270) { doc.addPage(); currentY = 20; }
                 doc.setFontSize(16);
                 doc.text('8. Plano Orçamentário', 15, currentY);
-
                 const orcamentoRows = [['Item', 'Descrição', 'Custo Unitário (R$)', 'Quantidade', 'Subtotal (R$)']];
                 let total = 0;
                 document.querySelectorAll('#orcamento-table-body .budget-row').forEach(row => {
@@ -662,43 +693,33 @@
                     orcamentoRows.push([cells[0].value, cells[1].value, cells[2].value, cells[3].value, subtotal.toFixed(2)]);
                 });
                 orcamentoRows.push(['', '', '', { content: 'Total:', styles: { fontStyle: 'bold', halign: 'right' } }, { content: total.toFixed(2), styles: { fontStyle: 'bold' } }]);
-
-                doc.autoTable({
-                    startY: currentY + 10,
-                    head: [orcamentoRows[0]],
-                    body: orcamentoRows.slice(1),
-                    theme: 'striped',
-                    headStyles: { fillColor: [245, 245, 245], textColor: [0, 0, 0] },
-                });
+                doc.autoTable({ startY: currentY + 10, head: [orcamentoRows[0]], body: orcamentoRows.slice(1), theme: 'striped', headStyles: { fillColor: [245, 245, 245], textColor: [0, 0, 0] }, });
                 currentY = doc.autoTable.previous.finalY + 10;
 
-                doc.setFontSize(16);
-                doc.text('9. Resultados e Indicadores de Sucesso', 15, currentY);
-                doc.setFontSize(12);
-                const resultadosLines = doc.splitTextToSize(document.getElementById('resultados').value, 180);
-                doc.text(resultadosLines, 15, currentY + 10);
+                addSection('9. Resultados e Indicadores de Sucesso', document.getElementById('resultados').value);
 
-                currentY += (resultadosLines.length * 7) + 10;
+                // Checklist
+                if (currentY > 240) { doc.addPage(); currentY = 20; }
                 doc.setFontSize(16);
-                doc.text('10. Checklist de Documentação', 15, currentY);
+                doc.text('10. Checklist de Documentação', 15, currentY); currentY += 10;
                 
                 const checklistJuridico = Array.from(document.querySelectorAll('#checklist-juridico-list input:checked')).map(cb => `✅ ${cb.nextElementSibling.textContent}`);
                 const checklistFiscal = Array.from(document.querySelectorAll('#checklist-fiscal-list input:checked')).map(cb => `✅ ${cb.nextElementSibling.textContent}`);
 
-                currentY += 10;
                 doc.setFontSize(14);
-                doc.text('Documentação Jurídica e Administrativa', 20, currentY);
+                doc.text('Documentação Jurídica e Administrativa', 20, currentY); currentY += 7;
                 doc.setFontSize(12);
-                checklistJuridico.forEach((item, index) => {
-                    doc.text(item, 25, currentY + 7 + (index * 7));
+                checklistJuridico.forEach((item) => {
+                    doc.text(item, 25, currentY); currentY += 7;
                 });
-
-                currentY += (checklistJuridico.length * 7) + 10;
+                
+                currentY += 5;
+                if (currentY > 260) { doc.addPage(); currentY = 20; }
                 doc.setFontSize(14);
-                doc.text('Certidões Negativas e Regularidades Fiscais', 20, currentY);
+                doc.text('Certidões Negativas e Regularidades Fiscais', 20, currentY); currentY += 7;
                 doc.setFontSize(12);
-                checklistFiscal.forEach((item, index) => {
-                    doc.text(item, 25, currentY + 7 + (index * 7));
+                checklistFiscal.forEach((item) => {
+                    doc.text(item, 25, currentY); currentY += 7;
                 });
                 
                 doc.save('projeto-social.pdf');
@@ -707,6 +728,15 @@
 
             // Geração de DOC
             generateDocBtn.addEventListener('click', function() {
+                function getTableAsMarkdown(tableId, headers) {
+                    let markdown = `\n| ${headers.join(' | ')} |\n|${headers.map(() => '---').join('|')}|\n`;
+                    document.querySelectorAll(`#${tableId} tr`).forEach(row => {
+                        const cells = Array.from(row.querySelectorAll('input, span')).map(cell => cell.value !== undefined ? cell.value : cell.textContent);
+                        markdown += `| ${cells.join(' | ')} |\n`;
+                    });
+                    return markdown;
+                }
+
                 const titulo = document.getElementById('titulo').value;
                 const ong = document.getElementById('ong').value;
                 const cnpj = document.getElementById('cnpj').value;
@@ -723,81 +753,56 @@
                 const metodologia = document.getElementById('metodologia').value;
                 const resultados = document.getElementById('resultados').value;
                 
-                let odsList = '';
-                if (odsSelecionados.length > 0) {
-                    odsList = `\n**ODS Relacionadas:**\n- ${odsSelecionados.join('\n- ')}\n`;
-                }
-
-                let cronogramaTable = '';
-                const cronogramaRows = document.querySelectorAll('#cronograma-table-body tr');
-                if (cronogramaRows.length > 0) {
-                    cronogramaTable += `\n### Cronograma de Execução\n\n| Fase | Atividade | Duração (Semanas) | Prazo |\n|---|---|---|---|\n`;
-                    cronogramaRows.forEach(row => {
-                        const cells = row.querySelectorAll('input');
-                        cronogramaTable += `| ${cells[0].value} | ${cells[1].value} | ${cells[2].value} | ${cells[3].value} |\n`;
-                    });
-                }
-
-                let orcamentoTable = '';
-                const orcamentoRows = document.querySelectorAll('#orcamento-table-body .budget-row');
-                if (orcamentoRows.length > 0) {
-                    orcamentoTable += `\n### Plano Orçamentário\n\n| Item | Descrição | Custo Unitário (R$) | Quantidade | Subtotal (R$) |\n|---|---|---|---|---|\n`;
-                    let total = 0;
-                    orcamentoRows.forEach(row => {
-                        const cells = row.querySelectorAll('input');
-                        const subtotal = parseFloat(row.querySelector('.subtotal-cell').textContent);
-                        total += subtotal;
-                        orcamentoTable += `| ${cells[0].value} | ${cells[1].value} | ${cells[2].value} | ${cells[3].value} | ${subtotal.toFixed(2)} |\n`;
-                    });
-                    orcamentoTable += `\n**Total:** ${total.toFixed(2)} R$\n`;
-                }
-
-                let checklistJuridico = '';
-                const juridicoItems = document.querySelectorAll('#checklist-juridico-list input:checked');
-                if (juridicoItems.length > 0) {
-                    checklistJuridico = `\n**Documentação Jurídica e Administrativa (Concluído):**\n- ${Array.from(juridicoItems).map(cb => cb.nextElementSibling.textContent).join('\n- ')}\n`;
-                }
+                let odsList = odsSelecionados.length > 0 ? `\n**ODS Relacionadas:**\n- ${odsSelecionados.join('\n- ')}\n` : '';
                 
-                let checklistFiscal = '';
-                const fiscalItems = document.querySelectorAll('#checklist-fiscal-list input:checked');
-                if (fiscalItems.length > 0) {
-                    checklistFiscal = `\n**Certidões Negativas e Regularidades Fiscais (Concluído):**\n- ${Array.from(fiscalItems).map(cb => cb.nextElementSibling.textContent).join('\n- ')}\n`;
-                }
+                const cronogramaTable = getTableAsMarkdown('cronograma-table-body', ['Fase', 'Atividade', 'Duração (Semanas)', 'Prazo']);
+                const orcamentoTable = getTableAsMarkdown('orcamento-table-body', ['Item', 'Descrição', 'Custo Unitário (R$)', 'Quantidade', 'Subtotal (R$)']);
+                const budgetTotal = document.getElementById('budget-total').textContent;
 
-                let docContent = `# Projeto Social\n\n`;
-                docContent += `## 1. Dados Básicos da ONG e do Projeto\n\n`;
-                docContent += `**Título do Projeto:** ${titulo}\n`;
-                docContent += `**Nome da ONG:** ${ong}\n`;
-                docContent += `**CNPJ:** ${cnpj}\n`;
-                docContent += `**Endereço:** ${endereco}\n`;
-                docContent += `**Redes Sociais e Site:** ${redesSociais}\n`;
-                docContent += `**Abrangência:** ${abrangencia}\n`;
-                docContent += odsList;
-                docContent += `\n## 2. Resumo do Projeto\n\n${resumo}\n\n`;
-                docContent += `## 3. Justificativa\n\n${justificativa}\n\n`;
-                docContent += `## 4. Público e Abrangência\n\n`;
-                docContent += `**Número de Beneficiários:** ${beneficiarios}\n`;
-                docContent += `**Público Prioritário:** ${publicoPrioritario}\n\n`;
-                docContent += `## 5. Objetivos\n\n`;
-                docContent += `**Objetivo Geral:** ${objetivoGeral}\n\n`;
-                docContent += `**Objetivos Específicos:** ${objetivosEspecificos}\n\n`;
-                docContent += `## 6. Metodologia e Plano de Ação\n\n${metodologia}\n\n`;
-                docContent += `## 7. Cronograma de Execução\n\n${cronogramaTable}\n\n`;
-                docContent += `## 8. Plano Orçamentário\n\n${orcamentoTable}\n\n`;
-                docContent += `## 9. Resultados e Indicadores de Sucesso\n\n${resultados}\n\n`;
-                docContent += `## 10. Checklist de Documentação\n\n`;
-                docContent += checklistJuridico;
-                docContent += checklistFiscal;
+                const juridicoItems = Array.from(document.querySelectorAll('#checklist-juridico-list input:checked')).map(cb => `- ${cb.nextElementSibling.textContent}`);
+                const fiscalItems = Array.from(document.querySelectorAll('#checklist-fiscal-list input:checked')).map(cb => `- ${cb.nextElementSibling.textContent}`);
+                let checklistJuridico = juridicoItems.length > 0 ? `\n**Documentação Jurídica e Administrativa (Concluído):**\n${juridicoItems.join('\n')}\n` : '';
+                let checklistFiscal = fiscalItems.length > 0 ? `\n**Certidões Negativas e Regularidades Fiscais (Concluído):**\n${fiscalItems.join('\n')}\n` : '';
 
-                const blob = new Blob([docContent], { type: 'text/plain;charset=utf-8' });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'projeto-social.doc';
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                URL.revokeObjectURL(url);
+                let docContent = `# Projeto Social\n\n`
+                               + `## 1. Dados Básicos da ONG e do Projeto\n\n`
+                               + `**Título do Projeto:** ${titulo}\n`
+                               + `**Nome da ONG:** ${ong}\n`
+                               + `**CNPJ:** ${cnpj}\n`
+                               + `**Endereço:** ${endereco}\n`
+                               + `**Redes Sociais e Site:** ${redesSociais}\n`
+                               + `**Abrangência:** ${abrangencia}\n`
+                               + `${odsList}\n`
+                               + `## 2. Resumo do Projeto\n\n${resumo}\n\n`
+                               + `## 3. Justificativa\n\n${justificativa}\n\n`
+                               + `## 4. Público e Abrangência\n\n`
+                               + `**Número de Beneficiários:** ${beneficiarios}\n`
+                               + `**Público Prioritário:** ${publicoPrioritario}\n\n`
+                               + `## 5. Objetivos\n\n`
+                               + `**Objetivo Geral:**\n${objetivoGeral}\n\n`
+                               + `**Objetivos Específicos:**\n${objetivosEspecificos}\n\n`
+                               + `## 6. Metodologia e Plano de Ação\n\n${metodologia}\n\n`
+                               + `## 7. Cronograma de Execução${cronogramaTable}\n`
+                               + `## 8. Plano Orçamentário${orcamentoTable}\n**Total:** R$ ${budgetTotal}\n\n`
+                               + `## 9. Resultados e Indicadores de Sucesso\n\n${resultados}\n\n`
+                               + `## 10. Checklist de Documentação\n`
+                               + `${checklistJuridico}`
+                               + `${checklistFiscal}`;
+                
+                const header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' " +
+                "xmlns:w='urn:schemas-microsoft-com:office:word' " +
+                "xmlns='http://www.w3.org/TR/REC-html40'>" +
+                "<head><meta charset='utf-8'><title>Export HTML to Word Document</title></head><body>";
+                const footer = "</body></html>";
+                const sourceHTML = header + docContent.replace(/\n/g, '<br>') + footer;
+
+                const source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
+                const fileDownload = document.createElement("a");
+                document.body.appendChild(fileDownload);
+                fileDownload.href = source;
+                fileDownload.download = 'projeto-social.doc';
+                fileDownload.click();
+                document.body.removeChild(fileDownload);
             });
 
             const initialHash = window.location.hash.substring(1);
@@ -810,7 +815,7 @@
             new Chart(timelineCtx, {
                 type: 'bar',
                 data: {
-                    labels: ['Planeamento', 'Captação de Recursos', 'Execução - Fase 1', 'Execução - Fase 2', 'Avaliação', 'Relatório Final'],
+                    labels: ['Planejamento', 'Captação de Recursos', 'Execução - Fase 1', 'Execução - Fase 2', 'Avaliação', 'Relatório Final'],
                     datasets: [{
                         label: 'Duração (Semanas)',
                         data: [4, 8, 12, 12, 4, 2],
@@ -824,23 +829,14 @@
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
-                        title: {
-                            display: true,
-                            text: 'Duração de Cada Etapa do Projeto'
-                        },
+                        title: { display: true, text: 'Duração de Cada Etapa do Projeto' },
                         tooltip: {
                             callbacks: {
-                                label: function(context) {
-                                    return `${context.dataset.label}: ${context.raw} semanas`;
-                                }
+                                label: function(context) { return `${context.dataset.label}: ${context.raw} semanas`; }
                             }
                         }
                     },
-                    scales: {
-                        x: {
-                            beginAtZero: true
-                        }
-                    }
+                    scales: { x: { beginAtZero: true } }
                 }
             });
 
@@ -865,10 +861,7 @@
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
-                        title: {
-                            display: true,
-                            text: 'Distribuição do Impacto por Área (%)'
-                        }
+                        title: { display: true, text: 'Distribuição do Impacto por Área (%)' }
                     }
                 }
             });
